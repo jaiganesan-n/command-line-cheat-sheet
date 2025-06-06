@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Line Cheat Sheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .tab {
+            padding: 10px 24px;
+            border: none;
+            background-color: #e0e0e0;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .tab:first-child {
+            border-radius: 6px 0 0 6px;
+        }
+        
+        .tab:last-child {
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tab.active {
+            background-color: #4a5568;
+            color: white;
+        }
+        
+        .tab.active.windows {
+            background-color: #0078d4;
+        }
+        
+        .tab:hover:not(.active) {
+            background-color: #d0d0d0;
+        }
+        
+        .content {
+            display: none;
+        }
+        
+        .content.active {
+            display: block;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        h2 {
+            color: #2563eb;
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .table-container {
+            background-color: #f9fafb;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            background-color: #f3f4f6;
+            color: #6b7280;
+            font-weight: 500;
+            font-size: 14px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .command {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        
+        .quick-tips {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e5e7eb;
+        }
+        
+        .quick-tips h2 {
+            margin-bottom: 16px;
+        }
+        
+        .quick-tips ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .quick-tips li {
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+            font-size: 14px;
+            color: #4b5563;
+        }
+        
+        .quick-tips li:before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: #2563eb;
+            font-weight: bold;
+        }
+        
+        .quick-tips strong {
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .quick-tips code {
+            background-color: #e5e7eb;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Command Line Cheat Sheet</h1>
+        <p class="subtitle">Essential commands for beginners in Python courses</p>
+        
+        <div class="tabs">
+            <button class="tab active" data-tab="macos">macOS Terminal</button>
+            <button class="tab" data-tab="windows">Windows Command Prompt</button>
+        </div>
+        
+        <!-- macOS Content -->
+        <div id="macos-content" class="content active">
+            <div class="section">
+                <h2>Navigation</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="command">pwd</span></td><td>Print working directory (current location)</td></tr>
+                            <tr><td><span class="command">ls</span></td><td>List files and directories in current location</td></tr>
+                            <tr><td><span class="command">ls -la</span></td><td>List all files (including hidden) with details</td></tr>
+                            <tr><td><span class="command">cd directory</span></td><td>Change to specified directory</td></tr>
+                            <tr><td><span class="command">cd ..</span></td><td>Move up one directory level</td></tr>
+                            <tr><td><span class="command">cd ~</span></td><td>Go to home directory</td></tr>
+                            <tr><td><span class="command">clear</span></td><td>Clear terminal screen</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>File Operations</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="command">mkdir name</span></td><td>Create a new directory</td></tr>
+                            <tr><td><span class="command">touch filename</span></td><td>Create a new empty file</td></tr>
+                            <tr><td><span class="command">cp source dest</span></td><td>Copy a file to destination</td></tr>
+                            <tr><td><span class="command">mv source dest</span></td><td>Move/rename a file</td></tr>
+                            <tr><td><span class="command">rm filename</span></td><td>Delete a file</td></tr>
+                            <tr><td><span class="command">rm -r directory</span></td><td>Delete a directory and contents</td></tr>
+                            <tr><td><span class="command">cat filename</span></td><td>Display file contents</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Python Commands</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="command">python3 file.py</span></td><td>Run a Python script</td></tr>
+                            <tr><td><span class="command">python3</span></td><td>Start Python interpreter</td></tr>
+                            <tr><td><span class="command">pip3 install package</span></td><td>Install a Python package</td></tr>
+                            <tr><td><span class="command">pip3 list</span></td><td>List installed packages</td></tr>
+                            <tr><td><span class="command">exit()</span></td><td>Exit Python interpreter (or Ctrl+D)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Useful Extras</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="command">history</span></td><td>Show command history</td></tr>
+                            <tr><td><span class="command">man command</span></td><td>Display manual for a command</td></tr>
+                            <tr><td><span class="command">grep pattern file</span></td><td>Search for pattern in file</td></tr>
+                            <tr><td><span class="command">Ctrl+C</span></td><td>Interrupt/stop current command</td></tr>
+                            <tr><td><span class="command">↑ / ↓</span></td><td>Navigate through command history</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Windows Content -->
+        <div id="windows-content" class="content">
+            <div class="section">
+                <h2>Navigation</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="command">cd</span></td><td>Show current directory path</td></tr>
+                            <tr><td><span class="command">dir</span></td><td>List files and directories</td></tr>
+                            <tr><td><span class="command">cd directory</span></td><td>Change to specified directory</td></tr>
+                            <tr><td><span class="command">cd..</span></td><td>Move up one directory level</td></tr>
+                            <tr><td><span class="command">cd\</span></td><td>Go to root of current drive</td></tr>
+                            <tr><td><span class="command">cls</span></td><td>Clear command prompt screen</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>File Operations</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="command">mkdir name</span></td><td>Create a new directory</td></tr>
+                            <tr><td><span class="command">type nul > filename</span></td><td>Create a new empty file</td></tr>
+                            <tr><td><span class="command">copy source dest</span></td><td>Copy a file to destination</td></tr>
+                            <tr><td><span class="command">move source dest</span></td><td>Move/rename a file</td></tr>
+                            <tr><td><span class="command">del filename</span></td><td>Delete a file</td></tr>
+                            <tr><td><span class="command">rmdir /s directory</span></td><td>Delete directory and contents</td></tr>
+                            <tr><td><span class="command">type filename</span></td><td>Display file contents</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Python Commands</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="command">python file.py</span></td><td>Run a Python script</td></tr>
+                            <tr><td><span class="command">python</span></td><td>Start Python interpreter</td></tr>
+                            <tr><td><span class="command">pip install package</span></td><td>Install a Python package</td></tr>
+                            <tr><td><span class="command">pip list</span></td><td>List installed packages</td></tr>
+                            <tr><td><span class="command">exit()</span></td><td>Exit Python interpreter</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Useful Extras</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="command">doskey /history</span></td><td>Show command history</td></tr>
+                            <tr><td><span class="command">help command</span></td><td>Get help for a command</td></tr>
+                            <tr><td><span class="command">findstr pattern file</span></td><td>Search for pattern in file</td></tr>
+                            <tr><td><span class="command">Ctrl+C</span></td><td>Interrupt/stop current command</td></tr>
+                            <tr><td><span class="command">↑ / ↓</span></td><td>Navigate through command history</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Tips (same for both) -->
+        <div class="quick-tips">
+            <h2>Quick Tips:</h2>
+            <ul>
+                <li>Use the <strong>Tab</strong> key to auto-complete commands and filenames.</li>
+                <li>Press <strong>Ctrl+C</strong> to cancel a running command.</li>
+                <li>Use the <strong>↑ / ↓</strong> arrow keys to navigate through command history.</li>
+                <li>Command names are <strong>case-sensitive</strong> on macOS and Linux, but not on Windows.</li>
+                <li>File and folder names are <strong>case-sensitive</strong> in Linux; in macOS and Windows, names are <strong>not case-sensitive</strong>.</li>
+                <li>Use the <code>--help</code> flag with most commands to view available options and usage.</li>
+                <li>Use <strong>forward slashes</strong> (<code>/</code>) in macOS/Linux paths, and <strong>backslashes</strong> (<code>\</code>) in Windows paths (e.g., <code>cd Documents/</code> vs <code>cd Documents\</code>).</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabName) {
+            // Hide all content
+            const macosContent = document.getElementById('macos-content');
+            const windowsContent = document.getElementById('windows-content');
+            const macosTab = document.querySelector('.tab:first-child');
+            const windowsTab = document.querySelector('.tab:last-child');
+            
+            // Remove active classes
+            macosContent.classList.remove('active');
+            windowsContent.classList.remove('active');
+            macosTab.classList.remove('active');
+            windowsTab.classList.remove('active', 'windows');
+            
+            // Show selected content and activate tab
+            if (tabName === 'macos') {
+                macosContent.classList.add('active');
+                macosTab.classList.add('active');
+            } else if (tabName === 'windows') {
+                windowsContent.classList.add('active');
+                windowsTab.classList.add('active', 'windows');
+            }
+        }
+        
+        // Ensure JavaScript works after DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up click handlers using data attributes
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    showTab(tabName);
+                });
+            });
+            
+            // Ensure macOS tab is active by default
+            showTab('macos');
+        });
+    </script>
+</body>
+</html>
